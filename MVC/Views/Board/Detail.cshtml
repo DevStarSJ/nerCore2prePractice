@@ -1,0 +1,21 @@
+﻿@model Board
+@{
+    ViewData["Title"] = "View";
+    var content = Model.content.Replace("\r\n", "<br/>").Replace("\r", "<br/>").Replace("\n", "<br/>").Replace("\t", "&nbsp;&nbsp;&nbsp;&nbsp;");
+}
+
+<h2>@Model.title</h2>
+
+<h3>@Model.id</h3>
+
+<div>
+    <textarea name="textarea" style="width:250px;height:150px;", disabled>
+        @content
+    </textarea>
+
+</div>
+
+<div>
+    @Model.created_at.ToString("yyyy-MM-dd hh:mm:ss") - @Model.updated_at.ToString("yyyy-MM-dd hh:mm:ss")
+</div>
+

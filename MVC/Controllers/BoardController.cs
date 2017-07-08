@@ -34,5 +34,12 @@ namespace MVC.Controllers
 
             return View(result);
         }
+
+        [HttpGet]
+        [Route("Board/{id:int}")]
+        public IActionResult Detail(int id)
+        {
+            return View(boards.FirstOrDefault(i => i.id == id));
+        }
     }
 }
