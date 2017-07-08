@@ -1,0 +1,42 @@
+﻿@model List<Board>
+@{
+    ViewData["Title"] = "게시판";
+    List<Board> boards = Model;
+}
+<h2>@ViewData["Title"].</h2>
+<h3>@ViewData["Message"]</h3>
+
+<div class="title-box">
+    <h1 class="page-title">게시판</h1>
+</div>
+
+<table>
+    <colgroup>
+        <col width="95" />
+        <col width="200" />
+        <col />
+        <col width="120" />
+        <col width="120" />
+    </colgroup>
+    <thead>
+        <tr>
+            <th>번호</th>
+            <th>제목</th>
+            <th>내용</th>
+            <th>생성</th>
+            <th>수정</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in boards)
+        {
+            <tr>
+                <td>@item.id</td>
+                <td><a href="/board/@item.id">@item.title</a></td>
+                <td>@item.content</td>
+                <td>@item.created_at.ToString("yyyy-MM-dd hh:mm:ss")</td>
+                <td>@item.updated_at.ToString("yyyy-MM-dd hh:mm:ss")</td>
+            </tr>
+        }
+    </tbody>
+</table>
